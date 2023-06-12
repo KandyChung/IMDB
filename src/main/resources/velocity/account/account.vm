@@ -1,0 +1,66 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+<style>
+h1 {
+	text-align: center;
+}
+</style>
+#if($currentUser)
+	<h1>
+		Account Information
+	</h1>
+	<h2>
+		User
+	</h2>
+	<div>
+		<p>
+			<b>Username: </b> $currentUser<br>
+			<b>First Name: </b> $account.getFirstName() <br>
+			<b>Last Name: </b> $account.getLastName() <br>
+			<b>Country: </b> $account.getCountry() <br>
+			<b>Gender: </b> $account.getGender() <br>
+			<b>Email: </b> $account.getEmail() <br>
+		</p>
+	</div>
+
+#elseif($adminUser)
+	<h1>
+		Account Information
+	</h1>
+	<h2>
+		Administrator
+	</h2>
+	<div>
+		<p>
+			<b>Username: </b> $adminUser<br>
+			<b>First Name: </b> $account.getFirstName() <br>
+			<b>Last Name: </b> $account.getLastName() <br>
+			<b>Country: </b> $account.getCountry() <br>
+			<b>Gender: </b> $account.getGender() <br>
+			<b>Email: </b> $account.getEmail() <br>
+		</p>
+	</div>
+	
+#elseif($pcoUser)
+	<h1>
+		Account Information
+	</h1>
+	<h2>
+		Production Company Organization
+	</h2>
+	<div>
+		<p>
+			<b>Username: </b> $pcoUser<br>
+			<b>First Name: </b> $account.getFirstName() <br>
+			<b>Last Name: </b> $account.getLastName() <br>
+			<b>Country: </b> $account.getCountry() <br>
+			<b>Gender: </b> $account.getGender() <br>
+			<b>Email: </b> $account.getEmail() <br>
+		</p>
+	</div>
+#else
+		<h1>
+			No user currently logged in
+		</h1>
+#end
+#end

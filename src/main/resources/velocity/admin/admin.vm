@@ -1,0 +1,14 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+
+	#if($noPendingShows)
+	
+		<h3>No Pending Shows</h3>
+	
+	#else
+		#foreach ( $eachShowOutput in $showDetialsArray)
+		
+					$eachShowOutput
+		#end
+	#end
+#end

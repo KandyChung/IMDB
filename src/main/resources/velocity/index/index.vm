@@ -1,0 +1,172 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+<script>
+	function searchInput(input, isMovie){
+		if(isMovie){
+			document.getElementById("showTitleSearch").value = input;
+			document.forms['searchTitleForm'].submit();
+		}
+		else{
+			document.getElementById("showActorSearch").value = input;
+			document.forms['searchActorForm'].submit();
+		}
+		
+	}
+</script>
+<style>
+.featured {
+	display:inline-block;
+	vertical-align: middle;
+	border-style: solid;
+	width:45%;
+	min-height: 300px;
+}
+
+.featured:hover{
+	background-color: gainsboro;
+}
+
+.featured h3{
+	text-align: center;
+}
+.featured img{
+	display:inline-block;
+	vertical-align:middle;
+	max-width:50%;
+	overflow: hidden;
+	max-height:300px;
+	min-width:100px;
+}
+
+.featured p{
+	display:inline-block; 
+	vertical-align:middle;
+	max-width:45%;
+	overflow: hidden;
+	max-height:200px;
+}
+
+</style>
+<h1>Search Movies</h1>
+<form id="searchTitleForm" method = "post" action ="/result-search">
+
+    <label>Search by Show Title</label>
+    <input type="text" name="showTitleSearch" id="showTitleSearch" placeholder="Show Title" value="" required>
+    <input type="submit" value="Search">
+</form>
+
+
+<form id="searchActorForm" method = "post" action ="/result-search">
+    <label>Search by Actor</label>
+    <input type="text" name="showActorSearch" id="showActorSearch" placeholder="ActorName" value="" required>
+    <input type="submit" value="Search">
+</form>
+#if($currentUser)
+                    <h1 style = "text-align: center">Featured Films
+                    </h1>
+                    <div class= "featured" onClick='searchInput("$movie1Name" ,true);'>
+                    	<h3> $movie1Name </h3>
+                    	<img src="$movie1Img" alt="Star Wars" height = '200px'>
+                    	<p>
+                    		$movie1desc
+                    	</p>
+                    </div>
+                    <div class= "featured" onClick='searchInput("$movie2Name" ,true);'>
+                    	<h3> $movie2Name </h3>
+                    	<img src="$movie2Img" alt="Star Wars" height = '200px'>
+                    	<p>
+                    		$movie2desc
+                    	</p>
+                    </div>
+                    <h1 style = "text-align: center">Featured Actors
+                    </h1>
+                    <div class = "featured" onClick="searchInput('$person11Name' ,false);">
+                    	<h3>$person11Name</h3>
+                    	<img src="$person11Img" alt="$person11Name" height = '200px'>
+                    	<p>
+                    		$person11Bio
+                    	</p>
+                    </div>
+                    <div class = "featured" onClick="searchInput('$person6Name' ,false);">
+                    	<h3>$person6Name</h3>
+                    	<img src="$person6Img" alt="$person6Name" height = '200px'>
+                    	<p>
+                    		$person6Bio
+                    	</p>
+                    </div>
+                
+                #elseif($adminUser)
+				<h1 style = "text-align: center">Featured Films
+                    </h1>
+                    <div class= "featured" onClick='searchInput("$movie1Name" ,true);'>
+                    	<h3> $movie1Name </h3>
+                    	<img src="$movie1Img" alt="Star Wars" height = '200px'>
+                    	<p>
+                    		$movie1desc
+                    	</p>
+                    </div>
+                    <div class= "featured" onClick='searchInput("$movie2Name" ,true);'>
+                    	<h3> $movie2Name </h3>
+                    	<img src="$movie2Img" alt="Star Wars" height = '200px'>
+                    	<p>
+                    		$movie2desc
+                    	</p>
+                    </div>
+                    <h1 style = "text-align: center">Featured Actors
+                    </h1>
+                    <div class = "featured" onClick="searchInput('$person11Name' ,false);">
+                    	<h3>$person11Name</h3>
+                    	<img src="$person11Img" alt="$person11Name" height = '200px'>
+                    	<p>
+                    		$person11Bio
+                    	</p>
+                    </div>
+                    <div class = "featured" onClick="searchInput('$person6Name' ,false);">
+                    	<h3>$person6Name</h3>
+                    	<img src="$person6Img" alt="$person6Name" height = '200px'>
+                    	<p>
+                    		$person6Bio
+                    	</p>
+                    </div>
+                    
+                 #elseif($pcoUser)
+				<h1 style = "text-align: center">Featured Films
+                    </h1>
+                    <div class= "featured" onClick='searchInput("$movie1Name" ,true);'>
+                    	<h3> $movie1Name </h3>
+                    	<img src="$movie1Img" alt="Star Wars" height = '200px'>
+                    	<p>
+                    		$movie1desc
+                    	</p>
+                    </div>
+                    <div class= "featured" onClick='searchInput("$movie2Name" ,true);'>
+                    	<h3> $movie2Name </h3>
+                    	<img src="$movie2Img" alt="Star Wars" height = '200px'>
+                    	<p>
+                    		$movie2desc
+                    	</p>
+                    </div>
+                    <h1 style = "text-align: center">Featured Actors
+                    </h1>
+                    <div class = "featured" onClick="searchInput('$person11Name' ,false);">
+                    	<h3>$person11Name</h3>
+                    	<img src="$person11Img" alt="$person11Name" height = '200px'>
+                    	<p>
+                    		$person11Bio
+                    	</p>
+                    </div>
+                    <div class = "featured" onClick="searchInput('$person6Name' ,false);">
+                    	<h3>$person6Name</h3>
+                    	<img src="$person6Img" alt="$person6Name" height = '200px'>
+                    	<p>
+                    		$person6Bio
+                    	</p>
+                    </div>
+                    
+                #else
+                    <h1 style = "text-align: center">
+                    	Login to view Featured pages
+                    </h1>
+                #end
+
+#end

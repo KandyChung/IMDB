@@ -1,0 +1,93 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+
+<h1> Person </h1>
+
+    
+    				<div>
+                    	<h3>$person1Name</h3>
+                    	<img src="$person1Img" alt="$person1Name" height = '200px'>
+                    	<p>
+                    		$person1Bio
+                    	</p>
+                    </div>
+                    <div>
+                    	<h3>$person2Name</h3>
+                    	<img src="$person2Img" alt="$person2Name" height = '200px'>
+                    	<p>
+                    		$person2Bio
+                    	</p>
+                    </div>
+                     <div>
+                    	<h3>$person3Name</h3>
+                    	<img src="$person3Img" alt="$person3Name" height = '200px'>
+                    	<p>
+                    		$person3Bio
+                    	</p>
+                    </div>
+                     <div>
+                    	<h3>$person4Name</h3>
+                    	<img src="$person4Img" alt="$person4Name" height = '200px'>
+                    	<p>
+                    		$person4Bio
+                    	</p>
+                    </div>
+                    <div>
+                    	<h3>$person5Name</h3>
+                    	<img src="$person5Img" alt="$person5Name" height = '200px'>
+                    	<p>
+                    		$person5Bio
+                    	</p>
+                    </div>
+                    <div>
+                    	<h3>$person6Name</h3>
+                    	<img src="$person6Img" alt="$person6Name" height = '200px'>
+                    	<p>
+                    		$person6Bio
+                    	</p>
+                    </div>
+                    <div>
+                    	<h3>$person7Name</h3>
+                    	<img src="$person7Img" alt="$person7Name" height = '200px'>
+                    	<p>
+                    		$person7Bio
+                    	</p>
+                    </div>
+                    <div>
+                    	<h3>$person8Name</h3>
+                    	<img src="$person8Img" alt="$person8Name" height = '200px'>
+                    	<p>
+                    		$person8Bio
+                    	</p>
+                    </div>
+                    <div>
+                    	<h3>$person9Name</h3>
+                    	<img src="$person9Img" alt="$person9Name" height = '200px'>
+                    	<p>
+                    		$person9Bio
+                    	</p>
+                    </div>
+                    <div>
+                    	<h3>$person10Name</h3>
+                    	<img src="$person10Img" alt="$person10Name" height = '200px'>
+                    	<p>
+                    		$person10Bio
+                    	</p>
+                    </div>
+                    <div>
+                    	<h3>$person11Name</h3>
+                    	<img src="$person11Img" alt="$person11Name" height = '200px'>
+                    	<p>
+                    		$person11Bio
+                    	</p>
+                    </div>
+                    <div>
+                    	<h3>$person12Name</h3>
+                    	<img src="$person12Img" alt="$person12Name" height = '200px'>
+                    	<p>
+                    		$person12Bio
+                    	</p>
+                    </div>
+
+    
+#end

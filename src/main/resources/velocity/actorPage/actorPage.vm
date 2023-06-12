@@ -1,0 +1,43 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+<style>
+#1 {
+	max-width: 300px;
+	min-width: 150px;
+	min-height:300px;
+}
+</style>
+
+ <h1> Result </h1>
+
+	<h2 style = "text-align: center">
+	
+		$Actor1Name
+	
+	</h2>
+    
+    <div style = " display: inline-block;
+    				vertical-align : middle;
+    				border-style : solid;
+    				max-width : 100%" >
+    	<img style = " vertical-align: middle;
+    				display: inline-block;
+    				max-height:300px;
+    				max-width:40%" 
+    		src="$Actor1Img" 
+    		alt="$Actor1Img" 
+    		height = '300px' >
+    		
+    	<p style = "display:inline-block;
+    				vertical-align:middle;
+    				max-width:55%;
+    				overflow: hidden; 
+    				max-height:200px;" >
+    				
+    		$Actor1Bio
+    	
+    	</p>
+    </div>
+    	
+
+#end

@@ -1,0 +1,13 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+
+	#if($noShows)
+	
+		<h3>No Shows Available</h3>
+	
+	#else
+		#foreach ( $showsOutputWithForm in $showsOutputWithFormArray)
+			$showsOutputWithForm
+		#end
+	#end
+#end

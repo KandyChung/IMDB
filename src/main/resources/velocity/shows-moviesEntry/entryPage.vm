@@ -1,0 +1,43 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+
+<form id="submitForm" method = "post">
+
+	#if($ShowTitleANDPCProblem)
+		<p class="bad notification">Invalid Input</p>
+	#elseif($ProductCompanyError)
+		<p class="bad notification">Production Company invalid name</p>
+	#elseif($DuplicatedShow)
+		<p class="bad notification">Show Already Exists</p>
+	#elseif($Passed)
+		<p class="good notification">Submit Successfully</p>
+	#end
+	
+	<h1>Submission Form</h1>
+	<label id = "submitFormlabel">Title</label>
+	<input id = "submitForminput" type="text" name="showTitle" placeholder="Title" value="" required> 
+	
+	<label id = "submitFormlabel">Genre</label>
+	<input id = "submitForminput" type="text" name="showGenre" placeholder="Genre" value="" required> 
+	
+	<label id = "submitFormlabel">Length</label>
+	<input id = "submitForminput" type="text" name="showLength" placeholder="Length e.g. 2.03" value="" required> 
+	
+	<label id = "submitFormlabel">Year</label> 
+	<input id = "submitForminput" type="text" name="showYear" placeholder="Year" value="" required> 
+	
+	<label id = "submitFormlabel">Production Company</label> 
+	<input id = "submitForminput" type="text" name="productioncompanyname" placeholder="Production Company Name" value="" required> 
+
+	<input type="radio"  name="type" value="movie">
+  	<label for="movie">Movie</label>
+  	
+  	<input type="radio" name="type" value="show">
+  	<label for="show">Show</label> 
+  	
+  	
+  	
+  	<input id ="submitFormLoginButton" type="submit" value="Submit">
+	
+</form>
+#end

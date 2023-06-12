@@ -1,0 +1,135 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+<style>
+#1 {
+	max-width: 300px;
+	min-width: 150px;
+	min-height:300px;
+}
+</style>
+
+ <h2 style = "text-align: center">
+	
+			$showTitle
+	
+		</h2>
+		
+		
+    	<div style = " display: inline-block;
+    					vertical-align : middle;
+    					border-style : solid;
+    					width : 100%;
+    					min-width: 300px;" >
+    		
+
+    	#if($movie)
+            	
+            <h3 style = "text-align: center">Movie</h3>
+            
+        	#else
+        
+        		<h3 style = "text-align: center">TV Series</h3>
+        	
+			#end
+    		
+    		<img style = " vertical-align: middle;
+    					hidden;
+    					max-height:300px;
+    					max-width:60%"; 
+    			src="$showImage" 
+    			alt="$showImage" 
+    			height = '300px' >
+    		<div style = "display: inline-block;
+    					 vertical-align : middle;
+    					 max-width : 100%;
+    					 min-width: 300px;" >
+    			<li> Genre: $genre </li>
+    			<li> Runtime: $length </li>
+    			<li> Year released: $year </li>
+    		</div>
+    	</div>
+    	
+    	
+    	
+    	
+    	#if($currentUser)
+            	
+            <h3 style = "text-align: center">User Rating: $rating</h3>
+            
+            <form id="leaveRatingForm" method = "post" action ="/showPage">
+
+               	<label>Leave a rating (Number of stars)</label>
+                <input type="text" name="showRating" id="showRating" placeholder="e.g 4" value="" required>
+                <input type="submit" value="Rate">
+            </form>
+    	
+    	#elseif($adminUser)
+    	
+    		<h3 style = "text-align: center">User Rating: $rating</h3>
+            
+            <form id="leaveRatingForm" method = "post" action ="/showPage">
+
+               	<label>Leave a rating (Number of stars)</label>
+                <input type="text" name="showRating" id="showRating" placeholder="e.g 4" value="" required>
+                <input type="submit" value="Rate">
+            </form>
+         
+        #elseif($pcoUser)
+    	
+    		<h3 style = "text-align: center">User Rating: $rating</h3>
+            
+            <form id="leaveRatingForm" method = "post" action ="/showPage">
+
+               	<label>Leave a rating (Number of stars)</label>
+                <input type="text" name="showRating" id="showRating" placeholder="e.g 4" value="" required>
+                <input type="submit" value="Rate">
+            </form>
+    	
+		#end
+		
+		
+		#if($noReview)
+		<h3 style = "text-align: left">User Review: $noReview</h3>
+		#else
+			<h3 style = "text-align: left">User Review: </h3>
+			#foreach ( $eachReview in $review)
+				<h5>$eachReview</h5>
+			#end
+		#end
+		
+		#if($currentUser)
+            	
+            	
+            <form id="leaveRatingForm" method = "post" action ="/showPage">
+
+               	<label>Comment: </label>
+                <input type="text" name="showReview" id="showReview" placeholder="comment" value="" required>
+                <input type="submit" value="submit">
+            </form>
+    	#elseif($adminUser)
+    	
+    		<form id="leaveRatingForm" method = "post" action ="/showPage">
+
+               	<label>Comment: </label>
+                <input type="text" name="showReview" id="showReview" placeholder="comment" value="" required>
+                <input type="submit" value="submit">
+            </form>
+       
+		#elseif($pcoUser)
+    	
+    		<form id="leaveRatingForm" method = "post" action ="/showPage">
+
+               	<label>Comment: </label>
+                <input type="text" name="showReview" id="showReview" placeholder="comment" value="" required>
+                <input type="submit" value="submit">
+            </form>
+            
+		#end
+    	
+
+#end
+
+
+
+
+

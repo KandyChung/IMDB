@@ -1,0 +1,121 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+<script>
+	function setValue(showID){
+			
+			document.getElementById('showid').value = showID;
+			document.getElementById('showClickedForm').submit();
+	}
+	function setActorValue(actorID){
+			
+			document.getElementById('personid').value = actorID;
+			document.getElementById('actorClickedForm').submit();
+	}
+</script>
+#if($NoActorandMovieFound)
+
+<h1> Result </h1>
+	
+	<h2 style = "text-align: center"> 
+		
+		Searched Actor/Actress NOT FOUND
+	
+	</h2>
+	
+	<h2 style = "text-align: center">
+		
+		Searched Movie/Show NOT FOUND
+	
+	</h2>
+
+
+	
+#elseif ($OnlyActorFound)
+	$actorBody
+	<form id="actorClickedForm" method = "get" action = "/actorPage">
+		<input id="personid" type = "hidden" name="personid" value ="">
+	</form>
+
+
+#elseif ($OnlyShowFound)
+	<form id="showClickedForm" method = "get" action ="/showPage">
+		<input id="showid" type ="hidden" name="showid" value = "">
+	</form>
+		$showBody
+    	
+
+#elseif ($ActorandMovieFound)
+
+<h1> Result </h1>
+
+	<h2 style = "text-align: center">
+	
+		Searched Actor/Actress
+	
+	</h2>
+    
+    <a href="http://localhost:7000/">
+    <div style = " display: inline-block;
+    				vertical-align : middle;
+    				border-style : solid;
+    				max-width : 100%" >
+    	<h3 style = "text-align: center">
+    	
+    		$Actor1Name
+    	
+    	</h3>
+    	
+    	<img style = " vertical-align: middle;
+    				display:inline-block;
+    				max-height:300px;
+    				max-width:40%" 
+    		src="$Actor1Img" 
+    		alt="$Actor1Img" 
+    		height = '300px' >
+    		
+    	<p style = "display:inline-block;
+    				vertical-align:middle;
+    				max-width:55%;
+    				overflow: hidden; 
+    				max-height:200px;" >
+    				
+    		$Actor1Bio
+    	
+    	</p>
+    </div>
+    </a>
+    
+    <h2 style = "text-align: center">
+	
+		Searched Movie/Show
+	
+	</h2>
+    
+    <a href="http://localhost:7000/showPage">
+    <div style = " display: inline-block;
+    				vertical-align : middle;
+    				border-style : solid;
+    				max-width : 100%" >
+    	<h3 style = "text-align: center">
+    	
+    		$Show1Name
+    	
+    	</h3>
+    	
+    	<img style = " vertical-align: middle;
+    				hidden;
+    				max-height:300px;
+    				max-width:60%" 
+    		src="$Show1Img" 
+    		alt="$Show1Img" 
+    		height = '300px' >
+    		
+    	<li> Genre: $Show1Genre </li>
+    	<li> Runtime: $Show1Length </li>
+    	<li> Year released: $Show1Year </li>
+    </div>
+    </a>
+    
+#end  
+    
+#end

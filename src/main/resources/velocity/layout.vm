@@ -1,0 +1,65 @@
+#macro(mainLayout)
+<html>
+<head>
+    <title>SEF IMBD</title>
+    <link rel="stylesheet" href="/main.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/"><img id="logo" src="/img/logo.png" alt="IMBD"></a>
+	
+            <ul id="menu">
+                #if($currentUser)
+                    <li><a href="/person" id="person">Actor/Actress</a></li>             
+                    <li><a href="/submit-show" id="submitShow">Register Movie/Show</a></li>
+                    <li><a href="/allShowsForUser" id="showForUser">Movies/Shows</a></li>
+                    <li><a href="/account" id="account">Account</a></li>
+                    <li>
+                        <form method="post" action="/logout">
+                            <button id="logout">Log Out</button>
+                        </form>
+                    </li>
+                #elseif($adminUser)
+                	<li><a href="/person" id="person">Actor/Actress</a></li>
+                    <li><a href="/allShows" id="show">Movies/Shows</a></li>
+                    <li><a href="/submit-show" id="submitShow">Register Movie/Show</a></li>
+                    <li><a href="/admin-access" id="admin-access">Pending Movie/Show</a></li>
+                    <li><a href="/pending-account" id="pending-account">Pending Accounts</a></li>
+                    <li><a href="/account" id="account">Account</a></li>
+                    <li>
+                        <form method="post" action="/logout">
+                            <button id="logout">Log Out</button>
+                        </form>
+                    </li>
+                #elseif($pcoUser)
+                	<li><a href="/person" id="person">Actor/Actress</a></li>
+                    <li><a href="/allShowsForUser" id="showForUser">Movies/Shows</a></li>
+                    <li><a href="/submit-show" id="submitShow">Register Movie/Show</a></li>
+                    <li><a href="/edit-data" id="edit-data">Edit Data</a></li>
+                    <li><a href="/account" id="account">Account</a></li>
+                    <li>
+                        <form method="post" action="/logout">
+                            <button id="logout">Log Out</button>
+                        </form>
+                    </li>
+                #else
+                	<li><a href="/sign-up">Create New Account</a></li>
+                    <li><a href="/login" >Log In</a></li>
+                #end
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="content">
+            $bodyContent
+        </div>
+    </main>
+    <footer>
+       Software Engineering Fundamentals Team Project
+    </footer>
+</body>
+</html>
+#end
